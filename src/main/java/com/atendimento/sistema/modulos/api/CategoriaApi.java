@@ -1,12 +1,11 @@
-package com.atendimento.sistema.atendimentoApi;
+package com.atendimento.sistema.modulos.api;
 
-import com.atendimento.sistema.model.Categoria;
-import com.atendimento.sistema.repository.CategoriaRepository;
+import com.atendimento.sistema.modulos.model.Categoria;
+import com.atendimento.sistema.modulos.repository.CategoriaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/categoria")
@@ -15,6 +14,7 @@ public class CategoriaApi {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
+    @CrossOrigin
     @GetMapping
     public List<Categoria> listCategoria(){
         return categoriaRepository.findAll();

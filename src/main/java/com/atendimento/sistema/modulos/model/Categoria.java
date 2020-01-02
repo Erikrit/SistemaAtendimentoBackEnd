@@ -1,4 +1,4 @@
-package com.atendimento.sistema.model;
+package com.atendimento.sistema.modulos.model;
 
 
 import javax.persistence.*;
