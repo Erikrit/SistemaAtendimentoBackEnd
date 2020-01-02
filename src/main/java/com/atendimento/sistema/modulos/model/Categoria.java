@@ -2,6 +2,7 @@ package com.atendimento.sistema.modulos.model;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "categoria")
@@ -11,10 +12,11 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
     private String nome;
 
     private String descricao;
-
+    @NotNull
     private Long codigo;
 
     public Long getId() {
