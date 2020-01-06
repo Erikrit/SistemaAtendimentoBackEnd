@@ -2,7 +2,7 @@ package com.atendimento.sistema.modulos.model;
 
 
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name = "categoria")
@@ -12,11 +12,14 @@ public class Categoria {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotNull
     private String nome;
 
     private String descricao;
-    @NotNull
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "referencia_id", nullable = false)
+    private Referencia referencia;
+
     private Long codigo;
 
     public Long getId() {
@@ -49,5 +52,13 @@ public class Categoria {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Referencia getReferencia() {
+        return referencia;
+    }
+
+    public void setReferencia(Referencia referencia) {
+        this.referencia = referencia;
     }
 }
